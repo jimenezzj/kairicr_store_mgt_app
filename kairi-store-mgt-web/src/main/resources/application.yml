@@ -1,0 +1,36 @@
+
+kairi:
+  paths:
+    base-path: "/api"
+    v1:
+      base-path: "/v1"
+      category:
+        post: "${kairi.paths.base-path}${kairi.paths.v1.base-path}/category"
+        get: ${kairi.paths.v1.category.post}
+        delete: ${kairi.paths.v1.category.post}
+        update: ${kairi.paths.v1.category.post}
+      store:
+      product:
+      customer:
+  views:
+    base-path: ""
+    v1:
+      base-path: ""
+      category:
+        list: "/category"
+        add: "${kairi.views.v1.category.list}/add"
+        update: "${kairi.views.v1.category.list}/add"
+      customer:
+        list: "/customer"
+        add: "${kairi.views.v1.customer.list}/add"
+        update: "${kairi.views.v1.customer.add}"
+server:
+  port: 7171
+
+spring:
+  thymeleaf:
+    cache: false
+  web:
+    resources:
+      chain:
+        cache: false
